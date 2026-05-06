@@ -8,7 +8,7 @@
     "dev": "tsx watch src/server.ts",
     "build": "tsc -p tsconfig.json",
     "start": "node dist/server.js",
-    "test": "node --test --import tsx tests/**/*.test.ts",
+    "test": "node --test --import tsx tests/api.test.ts",
     "db:seed": "tsx db/seed.ts"
   },
   "keywords": [
@@ -20,7 +20,7 @@
     "revenue-operations",
     "portfolio"
   ],
-  "author": "fknmiz",
+  "author": "mizcausevic-dev",
   "license": "MIT",
   "engines": {
     "node": ">=20"
