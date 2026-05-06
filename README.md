@@ -1,9 +1,6 @@
 # Revenue Ops AI Assistant
 
 > **TypeScript + Node.js + PostgreSQL + OpenAI portfolio project** demonstrating revenue intelligence APIs, SaaS data modeling, AI-assisted operator summaries, and production-minded backend structure for GTM workflows.
-
-**Recruiter takeaway:** *"This person can connect backend engineering, data modeling, and AI-assisted business workflows into something revenue teams would actually use."*
-
 ---
 
 ## Project Overview
