@@ -129,7 +129,7 @@ This models a practical internal revenue intelligence service rather than a gene
 
 ```bash
 # 1. Clone the repo
-git clone https://github.com/fknmiz/revenue-ops-ai-assistant.git
+git clone https://github.com/mizcausevic-dev/revenue-ops-ai-assistant.git
 cd revenue-ops-ai-assistant
 
 # 2. Install dependencies
@@ -251,8 +251,8 @@ Assets will live in [`screenshots/`](./screenshots/).
 - [LinkedIn](https://www.linkedin.com/in/mirzacausevic)
 - [Skills Page](https://mizcausevic.com/skills/)
 - [Medium](https://medium.com/@mizcausevic)
-- [GitHub](https://github.com/fknmiz)
+- [GitHub](https://github.com/mizcausevic-dev)
 
 ---
 
-*Part of [fknmiz's GitHub portfolio](https://github.com/fknmiz) — demonstrating revenue intelligence architecture, AI-assisted operator workflows, and production-aware backend delivery.*
+*Part of [mizcausevic-dev's GitHub portfolio](https://github.com/mizcausevic-dev) — demonstrating revenue intelligence architecture, AI-assisted operator workflows, and production-aware backend delivery.*
