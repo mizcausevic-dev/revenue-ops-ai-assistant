@@ -1,0 +1,110 @@
+openapi: 3.0.3
+info:
+  title: Revenue Ops AI Assistant
+  version: 1.0.0
+  description: >
+    Recruiter-ready TypeScript API for revenue operations intelligence, account visibility,
+    campaign insights, and AI-assisted GTM summaries.
+servers:
+  - url: http://localhost:3000
+tags:
+  - name: Health
+  - name: Accounts
+  - name: Opportunities
+  - name: Campaigns
+  - name: Activities
+  - name: Revenue
+  - name: Assistant
+paths:
+  /health:
+    get:
+      tags: [Health]
+      summary: Service health check
+      responses:
+        '200':
+          description: Health payload
+  /api/accounts:
+    get:
+      tags: [Accounts]
+      summary: List revenue accounts
+      responses:
+        '200':
+          description: Array of accounts
+  /api/accounts/{id}:
+    get:
+      tags: [Accounts]
+      summary: Get account with related revenue context
+      parameters:
+        - in: path
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Account bundle
+        '404':
+          description: Account not found
+  /api/opportunities:
+    get:
+      tags: [Opportunities]
+      summary: List opportunities
+      responses:
+        '200':
+          description: Array of opportunities
+  /api/campaigns:
+    get:
+      tags: [Campaigns]
+      summary: List campaigns
+      responses:
+        '200':
+          description: Array of campaigns
+  /api/activities:
+    get:
+      tags: [Activities]
+      summary: List engagement activities
+      responses:
+        '200':
+          description: Array of activities
+  /api/revenue/summary:
+    get:
+      tags: [Revenue]
+      summary: Get top-line revenue metrics
+      responses:
+        '200':
+          description: Revenue summary
+  /api/assistant/account-brief:
+    post:
+      tags: [Assistant]
+      summary: Generate an AI-assisted account brief
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                accountId:
+                  type: string
+              required: [accountId]
+            example:
+              accountId: acct-001
+      responses:
+        '200':
+          description: AI account brief
+        '404':
+          description: Account not found
+  /api/assistant/pipeline-summary:
+    post:
+      tags: [Assistant]
+      summary: Generate an AI-assisted pipeline summary
+      responses:
+        '200':
+          description: AI pipeline summary
+  /api/assistant/campaign-insights:
+    post:
+      tags: [Assistant]
+      summary: Generate AI-assisted campaign insights
+      responses:
+        '200':
+          description: AI campaign insight summary

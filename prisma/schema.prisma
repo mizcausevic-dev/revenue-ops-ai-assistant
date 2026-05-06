@@ -1,0 +1,109 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum OpportunityStage {
+  discovery
+  qualification
+  evaluation
+  proposal
+  negotiation
+  closed_won
+  closed_lost
+}
+
+enum AccountSegment {
+  enterprise
+  mid_market
+  growth
+}
+
+model Account {
+  id                   String             @id
+  name                 String
+  industry             String
+  segment              AccountSegment
+  region               String
+  employeeCount        Int
+  annualRevenue        Int
+  website              String
+  fitScore             Int
+  intentScore          Int
+  healthScore          Int
+  renewalRisk          Int
+  createdAt            DateTime           @default(now())
+  updatedAt            DateTime           @updatedAt
+  contacts             Contact[]
+  opportunities        Opportunity[]
+  activities           Activity[]
+  revenueSnapshots     RevenueSnapshot[]
+}
+
+model Contact {
+  id              String   @id
+  accountId       String
+  firstName       String
+  lastName        String
+  title           String
+  email           String
+  roleArea        String
+  engagementScore Int
+  account         Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+}
+
+model Campaign {
+  id                String        @id
+  name              String
+  channel           String
+  budget            Int
+  influencedPipeline Int
+  attributedRevenue Int
+  leadsGenerated    Int
+  leadQualityScore  Int
+  startDate         DateTime
+  endDate           DateTime
+  activities        Activity[]
+}
+
+model Opportunity {
+  id                  String            @id
+  accountId           String
+  name                String
+  stage               OpportunityStage
+  amount              Int
+  probability         Int
+  expectedCloseDate   DateTime
+  owner               String
+  source              String
+  riskLevel           String
+  account             Account           @relation(fields: [accountId], references: [id], onDelete: Cascade)
+}
+
+model Activity {
+  id            String   @id
+  accountId     String
+  campaignId    String?
+  type          String
+  channel       String
+  score         Int
+  happenedAt    DateTime
+  description   String
+  account       Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+  campaign      Campaign? @relation(fields: [campaignId], references: [id])
+}
+
+model RevenueSnapshot {
+  id                  String   @id
+  accountId           String
+  snapshotMonth       DateTime
+  arr                 Int
+  pipelineCoverage    Float
+  expansionPotential  Int
+  churnRisk           Int
+  account             Account  @relation(fields: [accountId], references: [id], onDelete: Cascade)
+}
