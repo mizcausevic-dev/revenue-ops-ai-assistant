@@ -1,7 +1,10 @@
 # Revenue Ops AI Assistant
 
-> **TypeScript + Node.js + PostgreSQL + OpenAI portfolio project** demonstrating revenue intelligence APIs, SaaS data modeling, AI-assisted operator summaries, and production-minded backend structure for GTM workflows.
----
+TypeScript, Node.js, PostgreSQL, and OpenAI project for **AI-assisted GTM operator summaries**, SaaS data modeling, and production-minded backend structure.
+
+> **What this repo proves**
+>
+> AI can help revenue teams move faster, but only when it stays grounded in structured systems of record instead of improvising over loose business data.
 
 ## Project Overview
 
@@ -13,27 +16,27 @@
 | **Database** | PostgreSQL + Prisma schema |
 | **AI Layer** | OpenAI with structured fallback mode |
 | **Domain** | B2B SaaS Revenue Operations |
-| **Core Workflows** | Account briefs · Pipeline summaries · Campaign insights |
+| **Core Workflows** | Account briefs Â· Pipeline summaries Â· Campaign insights |
 
 ---
 
 ## Service Architecture
 
 ```text
-accounts ───────── contacts
-   │
-   ├──────── opportunities
-   ├──────── activities
-   └──────── revenue snapshots
+accounts â”€â”€â”€â”€â”€â”€â”€â”€â”€ contacts
+   â”‚
+   â”œâ”€â”€â”€â”€â”€â”€â”€â”€ opportunities
+   â”œâ”€â”€â”€â”€â”€â”€â”€â”€ activities
+   â””â”€â”€â”€â”€â”€â”€â”€â”€ revenue snapshots
 
-campaigns ──────── activities
+campaigns â”€â”€â”€â”€â”€â”€â”€â”€ activities
 
 structured revenue data
-        │
-        ▼
+        â”‚
+        â–¼
 assistant endpoints
-        │
-        ▼
+        â”‚
+        â–¼
 AI summary + operator recommendation
 ```
 
@@ -160,17 +163,17 @@ npm test
 
 ```text
 client request
-   ↓
+   â†“
 helmet / cors / logging / JSON parsing
-   ↓
+   â†“
 route handler
-   ↓
+   â†“
 structured revenue context
-   ↓
+   â†“
 assistant prompt packaging
-   ↓
+   â†“
 OpenAI summary or fallback summary
-   ↓
+   â†“
 JSON response
 ```
 
@@ -252,4 +255,4 @@ Assets will live in [`screenshots/`](./screenshots/).
 
 ---
 
-*Part of [mizcausevic-dev's GitHub portfolio](https://github.com/mizcausevic-dev) — demonstrating revenue intelligence architecture, AI-assisted operator workflows, and production-aware backend delivery.*
+*Part of [mizcausevic-dev's GitHub portfolio](https://github.com/mizcausevic-dev) â€” demonstrating revenue intelligence architecture, AI-assisted operator workflows, and production-aware backend delivery.*
